@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Smartphone Repair Veenendaal | Telefoon- en tabletreparatie in de Passage</title>
+  <meta name="description" content="Telefoon of tablet kapot? Smartphone Repair Veenendaal repareert schermen, batterijen, oplaadpoorten, camera's en waterschade. Ook accessoires, simlock verwijderen en pasfoto's. Passage 87, Veenendaal.">
+  <meta name="theme-color" content="#1C2128">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112..125,600..900&family=Instrument+Sans:wght@400..700&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            wall: '#F5F6F7',
+            ink: '#1C2128',
+            graphite: '#4A525C',
+            line: '#DFE2E6',
+            signal: { DEFAULT: '#D2231B', deep: '#A8180F', soft: '#FBE9E8' },
+            oak: { DEFAULT: '#B47A45', soft: '#F3E8DD' },
+          },
+          fontFamily: {
+            display: ['Archivo', 'system-ui', 'sans-serif'],
+            sans: ['"Instrument Sans"', 'system-ui', 'sans-serif'],
+          },
+          spacing: { gutter: '1.25rem', block: '2.5rem', section: '6rem', 'section-lg': '8.5rem' },
+          maxWidth: { page: '78rem', text: '38rem' },
+          borderRadius: { photo: '1.75rem', panel: '1.25rem', control: '0.875rem' },
+          boxShadow: {
+            elevated: '0 1px 2px rgba(28,33,40,.06), 0 6px 16px -4px rgba(28,33,40,.10)',
+            floating: '0 2px 4px rgba(28,33,40,.08), 0 18px 40px -12px rgba(28,33,40,.35), 0 40px 80px -24px rgba(168,24,15,.25)',
+            press: '0 1px 1px rgba(168,24,15,.25), 0 8px 18px -6px rgba(210,35,27,.55)',
+          },
+          transitionTimingFunction: { spring: 'cubic-bezier(.34,1.56,.64,1)' },
+        },
+      },
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer base {
+      html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+      body { @apply bg-wall text-ink font-sans antialiased; line-height: 1.7; }
+      h1, h2, h3 { @apply font-display; font-stretch: 125%; letter-spacing: -0.03em; line-height: 1.02; }
+      :focus-visible { outline: 3px solid #D2231B; outline-offset: 3px; border-radius: 6px; }
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+      }
+    }
+    @layer components {
+      .wrap { @apply mx-auto w-full max-w-page px-gutter md:px-block; }
+      .btn {
+        @apply inline-flex items-center justify-center gap-2.5 rounded-control px-6 py-3.5 font-semibold text-base;
+        transition-property: transform, box-shadow, opacity; transition-duration: 260ms;
+        transition-timing-function: cubic-bezier(.34,1.56,.64,1);
+      }
+      .btn:hover { transform: translateY(-2px); }
+      .btn:active { transform: translateY(1px) scale(.98); transition-duration: 90ms; }
+      .btn-primary { @apply bg-signal text-white shadow-press; }
+      .btn-primary:hover { @apply bg-signal-deep; }
+      .btn-ghost { @apply bg-white text-ink shadow-elevated ring-1 ring-line; }
+      .btn-ghost:hover { @apply ring-ink/30; }
+      .link { @apply font-semibold text-ink underline decoration-signal decoration-2 underline-offset-4; transition: opacity 200ms; }
+      .link:hover { opacity: .7; }
+      .link:active { opacity: .5; }
+      .navlink { @apply rounded-lg px-3 py-2 text-[0.95rem] font-medium text-graphite; transition: opacity 200ms, transform 200ms; }
+      .navlink:hover { @apply text-ink; }
+      .navlink:active { transform: scale(.97); }
+      .sec { @apply py-section md:py-section-lg; }
+      .h2 { @apply text-[2rem] sm:text-[2.6rem] md:text-[3.1rem] font-extrabold; }
+      .lead { @apply text-lg text-graphite max-w-text; }
+      .photo { @apply relative overflow-hidden rounded-photo bg-line; isolation: isolate; }
+      .photo img { @apply block h-full w-full object-cover; }
+      .photo .tint { @apply pointer-events-none absolute inset-0 mix-blend-multiply; background: #1C2128; opacity: .12; }
+      .photo .fade { @apply pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0; }
+    }
+  </style>
+  <style>
+    /* The business-card wordmark: chrome red, like the printed card */
+    .chrome {
+      background: linear-gradient(180deg, #FF6A55 0%, #E2342A 45%, #A8180F 55%, #D2231B 100%);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .grain::after {
+      content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .14; mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+    .card-glow {
+      background:
+        radial-gradient(120% 80% at 100% 0%, rgba(210,35,27,.28) 0%, rgba(210,35,27,0) 55%),
+        radial-gradient(90% 70% at 0% 100%, rgba(180,122,69,.18) 0%, rgba(180,122,69,0) 60%),
+        linear-gradient(160deg, #262C34 0%, #000 70%);
+    }
+    .dark-glow {
+      background:
+        radial-gradient(60% 70% at 85% 10%, rgba(210,35,27,.22) 0%, rgba(210,35,27,0) 60%),
+        radial-gradient(50% 60% at 5% 95%, rgba(180,122,69,.16) 0%, rgba(180,122,69,0) 60%),
+        #1C2128;
+    }
+    .hero-wash {
+      background:
+        radial-gradient(55% 60% at 90% 20%, rgba(210,35,27,.07) 0%, rgba(210,35,27,0) 70%),
+        radial-gradient(40% 50% at 0% 0%, rgba(180,122,69,.08) 0%, rgba(180,122,69,0) 70%),
+        #F5F6F7;
+    }
+    /* One orchestrated load moment: the card lands on the photo */
+    @keyframes land { from { opacity: 0; transform: translateY(28px) rotate(-3deg); } to { opacity: 1; transform: translateY(0) rotate(-1.5deg); } }
+    .card-land { transform: rotate(-1.5deg); animation: land 900ms cubic-bezier(.34,1.56,.64,1) 250ms both; }
+    @keyframes pulse-dot { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: .45; transform: scale(.8); } }
+    .dot-open { animation: pulse-dot 2.4s ease-in-out infinite; }
+    .service-row { transition: transform 260ms cubic-bezier(.34,1.56,.64,1); }
+    .hours-today { background: #FBE9E8; }
+  </style>
+</head>
+<body>
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:shadow-floating">Naar de inhoud</a>
+
+  <!-- Header -->
+  <header class="sticky top-0 z-40 border-b border-line/80 bg-wall/90 backdrop-blur-md">
+    <div class="wrap flex h-[4.5rem] items-center justify-between gap-6">
+      <a href="#top" class="group flex flex-col leading-none" aria-label="Smartphone Repair Veenendaal, naar boven">
+        <span class="font-display text-[0.95rem] font-black tracking-[0.02em] text-ink sm:text-[1.05rem]" style="font-stretch:125%">SMARTPHONEREPAIR</span>
+        <span class="font-display text-[0.72rem] font-extrabold tracking-[0.32em] text-signal sm:text-[0.8rem]" style="font-stretch:125%">VEENENDAAL</span>
+      </a>
+      <nav aria-label="Hoofdmenu" class="hidden items-center gap-1 md:flex">
+        <a class="navlink" href="#reparaties">Reparaties</a>
+        <a class="navlink" href="#winkel">Winkel</a>
+        <a class="navlink" href="#reviews">Reviews</a>
+        <a class="navlink" href="#bezoek">Openingstijden</a>
+      </nav>
+      <a href="tel:+31318308781" class="btn btn-primary !px-4 !py-2.5 text-[0.95rem]">
+        <svg aria-hidden="true" class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span class="hidden sm:inline">0318 308 781</span><span class="sm:hidden">Bellen</span>
+      </a>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section id="top" class="hero-wash relative overflow-hidden">
+      <div class="wrap grid items-center gap-block pb-section pt-12 md:pt-16 lg:grid-cols-[1fr_1.08fr] lg:gap-16 lg:pb-section-lg">
+        <div>
+          <h1 class="text-[2.6rem] font-black text-ink sm:text-[3.6rem] lg:text-[4.3rem]">Telefoon kapot? Loop binnen in de Passage.</h1>
+          <p class="lead mt-6">Gebarsten scherm, batterij die snel leeg is of waterschade: we repareren smartphones en tablets in onze winkel in het centrum van Veenendaal. Eerst kijken we wat er mis is, daarna hoor je wat het kost.</p>
+          <div class="mt-9 flex flex-wrap gap-3">
+            <a href="tel:+31318308781" class="btn btn-primary">
+              <svg aria-hidden="true" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              Bel 0318 308 781
+            </a>
+            <a href="https://wa.me/31624436406" class="btn btn-ghost" target="_blank" rel="noopener">
+              <svg aria-hidden="true" class="h-5 w-5 text-[#1DA851]" viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35zM12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.31l-.34-.2-3.57.93.95-3.48-.22-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.23-9.43 9.44-9.43 2.52 0 4.89.98 6.67 2.77a9.37 9.37 0 0 1 2.76 6.67c0 5.2-4.24 9.43-9.44 9.43zm8.03-17.46A11.3 11.3 0 0 0 12.05.7C5.8.7.7 5.8.7 12.05c0 2 .52 3.95 1.52 5.67L.6 23.5l5.92-1.55a11.3 11.3 0 0 0 5.42 1.38h.01c6.25 0 11.35-5.09 11.35-11.35 0-3.03-1.18-5.88-3.32-8.02z"/></svg>
+              App via WhatsApp
+            </a>
+          </div>
+          <a href="#reviews" class="group mt-9 inline-flex items-center gap-3 rounded-lg" style="transition: opacity 200ms">
+            <span class="flex gap-0.5 text-oak" aria-hidden="true">
+              <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg>
+              <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg>
+              <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg>
+              <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg>
+              <svg class="h-5 w-5" viewBox="0 0 20 20"><defs><linearGradient id="half"><stop offset="60%" stop-color="currentColor"/><stop offset="60%" stop-color="#DFE2E6"/></linearGradient></defs><path fill="url(#half)" d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg>
+            </span>
+            <span class="text-[0.95rem] text-graphite group-hover:text-ink"><strong class="font-semibold text-ink">4,6</strong> uit 52 Google-reviews</span>
+          </a>
+        </div>
+
+        <!-- Photo + floating business card -->
+        <div class="relative">
+          <figure class="photo aspect-[4/3] shadow-elevated">
+            <img src="img/winkel-ingang.webp" width="1600" height="1214" alt="De ingang van Smartphone Repair Veenendaal, met een wand vol telefoonhoesjes en een bord voor pasfoto's" fetchpriority="high">
+            <span class="tint"></span><span class="fade"></span>
+            <figcaption class="absolute bottom-5 right-6 hidden text-sm font-medium text-white/90 lg:block">Onze winkel in Winkelcentrum Passage</figcaption>
+          </figure>
+
+          <aside aria-label="Nu bereikbaar" class="card-land card-glow grain relative z-10 mx-auto -mt-14 w-[min(22rem,90%)] overflow-hidden rounded-panel p-6 text-white shadow-floating sm:-mt-20 lg:absolute lg:-bottom-10 lg:-left-10 lg:mx-0 lg:mt-0 lg:w-[21rem]">
+            <p class="font-display text-[1.05rem] font-black leading-none tracking-[0.02em] chrome" style="font-stretch:125%">SMARTPHONEREPAIR</p>
+            <p class="mt-1 font-display text-[0.72rem] font-extrabold leading-none tracking-[0.34em] text-signal" style="font-stretch:125%">VEENENDAAL</p>
+            <p class="mt-5 flex items-center gap-2.5 text-[0.95rem] font-semibold" id="status" aria-live="polite">
+              <span id="status-dot" class="h-2.5 w-2.5 rounded-full bg-white/40"></span>
+              <span id="status-text">Openingstijden staan hieronder</span>
+            </p>
+            <dl class="mt-4 space-y-2 border-t border-white/15 pt-4 text-[0.92rem] text-white/80">
+              <div class="flex justify-between gap-4"><dt>Winkel</dt><dd><a class="font-semibold text-white hover:opacity-75 active:opacity-50" href="tel:+31318308781" style="transition:opacity 200ms">0318 308 781</a></dd></div>
+              <div class="flex justify-between gap-4"><dt>WhatsApp</dt><dd><a class="font-semibold text-white hover:opacity-75 active:opacity-50" href="https://wa.me/31624436406" target="_blank" rel="noopener" style="transition:opacity 200ms">06 2443 6406</a></dd></div>
+              <div class="flex justify-between gap-4"><dt>Adres</dt><dd class="text-right text-white">Passage 87, Veenendaal</dd></div>
+            </dl>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reparaties -->
+    <section id="reparaties" class="sec bg-white">
+      <div class="wrap grid gap-block lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+        <div class="lg:sticky lg:top-28 lg:self-start">
+          <h2 class="h2">Wat we repareren</h2>
+          <p class="lead mt-5">Van een barst in het glas tot een telefoon die niet meer aangaat. We werken aan smartphones van alle grote merken, aan tablets en ook aan laptops.</p>
+          <p class="mt-6 text-graphite">Staat jouw probleem er niet tussen? <a class="link" href="https://wa.me/31624436406" target="_blank" rel="noopener">Stuur een WhatsApp</a> met een foto, dan kijken we mee.</p>
+        </div>
+
+        <div class="divide-y divide-line border-y border-line">
+          <div class="grid gap-x-8 gap-y-3 py-8 sm:grid-cols-[11rem_1fr]">
+            <h3 class="text-lg font-bold" style="font-stretch:112%">Scherm en behuizing</h3>
+            <ul class="space-y-3">
+              <li><p class="font-semibold">Schermreparatie en -vervanging</p><p class="text-graphite">Gebarsten glas, strepen, zwart beeld of een touchscreen dat niet reageert.</p></li>
+              <li><p class="font-semibold">Behuizing en achterkant</p><p class="text-graphite">Een kapotte achterkant of een verbogen frame vervangen we.</p></li>
+            </ul>
+          </div>
+          <div class="grid gap-x-8 gap-y-3 py-8 sm:grid-cols-[11rem_1fr]">
+            <h3 class="text-lg font-bold" style="font-stretch:112%">Stroom en knoppen</h3>
+            <ul class="space-y-3">
+              <li><p class="font-semibold">Batterij vervangen</p><p class="text-graphite">Voor een telefoon die halverwege de dag al leeg is of zomaar uitvalt.</p></li>
+              <li><p class="font-semibold">Oplaadpoort</p><p class="text-graphite">Laadt alleen in een bepaalde stand, of helemaal niet meer.</p></li>
+              <li><p class="font-semibold">Aan/uit-knop</p><p class="text-graphite">Een knop die vastzit of niet meer reageert.</p></li>
+            </ul>
+          </div>
+          <div class="grid gap-x-8 gap-y-3 py-8 sm:grid-cols-[11rem_1fr]">
+            <h3 class="text-lg font-bold" style="font-stretch:112%">Geluid en camera</h3>
+            <ul class="space-y-3">
+              <li><p class="font-semibold">Microfoon en speaker</p><p class="text-graphite">Je hoort de ander slecht, of de ander hoort jou niet.</p></li>
+              <li><p class="font-semibold">Camera</p><p class="text-graphite">Wazige foto's, een gebarsten cameralens of een camera die niet opstart.</p></li>
+            </ul>
+          </div>
+          <div class="grid gap-x-8 gap-y-3 py-8 sm:grid-cols-[11rem_1fr]">
+            <h3 class="text-lg font-bold" style="font-stretch:112%">Water en software</h3>
+            <ul class="space-y-3">
+              <li><p class="font-semibold">Waterschade</p><p class="text-graphite">Zet de telefoon uit, laad hem niet op en kom zo snel mogelijk langs.</p></li>
+              <li><p class="font-semibold">Softwareproblemen</p><p class="text-graphite">Vastlopen, opstartproblemen, updates en installatie.</p></li>
+              <li><p class="font-semibold">Diagnose</p><p class="text-graphite">Weet je niet wat er mis is? We onderzoeken het toestel eerst grondig.</p></li>
+            </ul>
+          </div>
+          <div class="grid gap-x-8 gap-y-3 py-8 sm:grid-cols-[11rem_1fr]">
+            <h3 class="text-lg font-bold" style="font-stretch:112%">Tablets en laptops</h3>
+            <ul class="space-y-3">
+              <li><p class="font-semibold">Tabletreparatie</p><p class="text-graphite">Scherm, batterij en oplaadpoort van iPads en andere tablets.</p></li>
+              <li><p class="font-semibold">Laptopreparatie</p><p class="text-graphite">Ook met je laptop kun je bij ons terecht. Vraag in de winkel wat mogelijk is.</p></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Zo werkt het -->
+    <section aria-labelledby="werkwijze" class="sec dark-glow grain relative overflow-hidden text-white">
+      <div class="wrap relative">
+        <h2 id="werkwijze" class="h2 max-w-[18ch]">Zo gaat een reparatie</h2>
+        <ol class="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+          <li class="border-t border-white/20 pt-6">
+            <span class="font-display text-[2.6rem] font-black leading-none text-signal" style="font-stretch:125%">1</span>
+            <h3 class="mt-4 text-xl font-bold" style="font-stretch:112%;letter-spacing:-0.01em">Kom langs</h3>
+            <p class="mt-2 text-white/75">Loop binnen in de Passage, of bel of app eerst om je probleem door te geven.</p>
+          </li>
+          <li class="border-t border-white/20 pt-6">
+            <span class="font-display text-[2.6rem] font-black leading-none text-signal" style="font-stretch:125%">2</span>
+            <h3 class="mt-4 text-xl font-bold" style="font-stretch:112%;letter-spacing:-0.01em">We onderzoeken het toestel</h3>
+            <p class="mt-2 text-white/75">We zoeken grondig uit wat er precies kapot is.</p>
+          </li>
+          <li class="border-t border-white/20 pt-6">
+            <span class="font-display text-[2.6rem] font-black leading-none text-signal" style="font-stretch:125%">3</span>
+            <h3 class="mt-4 text-xl font-bold" style="font-stretch:112%;letter-spacing:-0.01em">Je hoort de prijs</h3>
+            <p class="mt-2 text-white/75">Op basis van wat we vinden, berekenen we wat de reparatie kost.</p>
+          </li>
+          <li class="border-t border-white/20 pt-6">
+            <span class="font-display text-[2.6rem] font-black leading-none text-signal" style="font-stretch:125%">4</span>
+            <h3 class="mt-4 text-xl font-bold" style="font-stretch:112%;letter-spacing:-0.01em">Gerepareerd terug</h3>
+            <p class="mt-2 text-white/75">Je telefoon werkt weer zoals hij hoort, met garantie op de reparatie.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Winkel -->
+    <section id="winkel" class="sec">
+      <div class="wrap">
+        <div class="grid gap-block lg:grid-cols-[1.25fr_0.75fr] lg:items-end lg:gap-16">
+          <div>
+            <h2 class="h2">Meer dan reparaties</h2>
+            <p class="lead mt-5">Onze wand hangt vol met honderden hoesjes. Daarnaast vind je bij ons telefoons, tablets en alles wat je verder nodig hebt.</p>
+          </div>
+          <p class="text-graphite lg:pb-2">Eigenaar <strong class="font-semibold text-ink">H. Haidari</strong> en zijn team helpen je graag in de winkel.</p>
+        </div>
+
+        <div class="mt-14 grid gap-5 md:grid-cols-[1.5fr_1fr]">
+          <figure class="photo aspect-[4/3] shadow-elevated md:aspect-auto md:min-h-[30rem]">
+            <img src="img/winkel-interieur.webp" width="1600" height="1207" loading="lazy" alt="Vitrine met tablets en Samsung-telefoons, voor een wand vol hoesjes">
+            <span class="tint"></span><span class="fade"></span>
+            <figcaption class="absolute bottom-5 left-6 text-sm font-medium text-white/90">Telefoons en tablets in de vitrine</figcaption>
+          </figure>
+          <figure class="photo aspect-[4/5] shadow-elevated md:aspect-auto">
+            <img src="img/iphone-visitekaartje.webp" width="900" height="1211" loading="lazy" alt="Een iPhone op de toonbank, met het visitekaartje van Smartphone Repair Veenendaal" class="object-[50%_30%]">
+            <span class="tint"></span><span class="fade"></span>
+          </figure>
+        </div>
+
+        <ul class="mt-14 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
+          <li class="flex gap-4">
+            <span class="mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-xl bg-signal-soft text-signal" aria-hidden="true"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M10 6h4"/></svg></span>
+            <div><h3 class="font-sans text-lg font-semibold" style="letter-spacing:0;font-stretch:100%">Hoesjes en accessoires</h3><p class="text-graphite">Hoesjes, screenprotectors, opladers, kabels en oordopjes.</p></div>
+          </li>
+          <li class="flex gap-4">
+            <span class="mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-xl bg-signal-soft text-signal" aria-hidden="true"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8"/></svg></span>
+            <div><h3 class="font-sans text-lg font-semibold" style="letter-spacing:0;font-stretch:100%">Telefoons en tablets</h3><p class="text-graphite">Toestellen te koop, direct mee te nemen uit de vitrine.</p></div>
+          </li>
+          <li class="flex gap-4">
+            <span class="mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-xl bg-signal-soft text-signal" aria-hidden="true"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 7.5-2"/></svg></span>
+            <div><h3 class="font-sans text-lg font-semibold" style="letter-spacing:0;font-stretch:100%">Simlock verwijderen</h3><p class="text-graphite">Gebruik je telefoon met de simkaart van elke provider.</p></div>
+          </li>
+          <li class="flex gap-4">
+            <span class="mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-xl bg-signal-soft text-signal" aria-hidden="true"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2"/><circle cx="12" cy="10" r="3"/><path d="M7 18a5 5 0 0 1 10 0"/></svg></span>
+            <div><h3 class="font-sans text-lg font-semibold" style="letter-spacing:0;font-stretch:100%">Pasfoto's</h3><p class="text-graphite">Pasfoto's laten maken voor je paspoort, ID-kaart of rijbewijs.</p></div>
+          </li>
+          <li class="flex gap-4">
+            <span class="mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-xl bg-signal-soft text-signal" aria-hidden="true"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H8a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V6z"/><rect x="9" y="11" width="6" height="6" rx="1"/></svg></span>
+            <div><h3 class="font-sans text-lg font-semibold" style="letter-spacing:0;font-stretch:100%">Prepaid simkaarten</h3><p class="text-graphite">Prepaid simkaarten en voordeelbundels, ook om naar het buitenland te bellen.</p></div>
+          </li>
+          <li class="flex gap-4">
+            <span class="mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-xl bg-signal-soft text-signal" aria-hidden="true"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.5" r="1.5"/><path d="M12 7v6h5M8.5 10.5a5.5 5.5 0 1 0 7.8 6.5"/></svg></span>
+            <div><h3 class="font-sans text-lg font-semibold" style="letter-spacing:0;font-stretch:100%">Rolstoeltoegankelijk</h3><p class="text-graphite">De winkel ligt gelijkvloers in het overdekte winkelcentrum.</p></div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Reviews -->
+    <section id="reviews" class="sec bg-white">
+      <div class="wrap">
+        <div class="flex flex-wrap items-end justify-between gap-8">
+          <div>
+            <h2 class="h2">Wat klanten zeggen</h2>
+            <p class="lead mt-5">Een selectie uit de reviews die klanten op Google achterlieten.</p>
+          </div>
+          <div class="flex items-center gap-5">
+            <p class="font-display text-[4.5rem] font-black leading-none" style="font-stretch:125%;letter-spacing:-0.04em">4,6</p>
+            <div>
+              <p class="flex gap-0.5 text-oak" aria-label="4,6 van 5 sterren">
+                <svg aria-hidden="true" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg>
+                <svg aria-hidden="true" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg>
+                <svg aria-hidden="true" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg>
+                <svg aria-hidden="true" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg>
+                <svg aria-hidden="true" class="h-5 w-5" viewBox="0 0 20 20"><path fill="url(#half)" d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg>
+              </p>
+              <p class="mt-1 text-sm text-graphite">52 reviews op Google</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          <figure class="rounded-panel bg-ink p-7 text-white shadow-floating flex flex-col justify-between md:row-span-2 lg:row-span-3 lg:p-9">
+            <blockquote class="font-display text-[1.45rem] font-extrabold leading-tight" style="font-stretch:112%;letter-spacing:-0.02em">“Wat een geweldige winkel, mijn scherm was kapot. Ze hebben het in 1 dag kunnen maken en prijs-kwaliteit is super.”</blockquote>
+            <figcaption class="mt-6 text-sm text-white/70"><span class="font-semibold text-white">Marko</span>, 5 sterren</figcaption>
+          </figure>
+          <figure class="rounded-panel bg-wall p-7 ring-1 ring-line/60">
+            <blockquote class="text-[1.05rem]">“Top zaak, aardige eigenaar, snelle en goede service.”</blockquote>
+            <figcaption class="mt-5 text-sm text-graphite"><span class="font-semibold text-ink">D.</span>, Google-review</figcaption>
+          </figure>
+          <figure class="rounded-panel bg-wall p-7 ring-1 ring-line/60">
+            <blockquote class="text-[1.05rem]">“Zeer goed geholpen tegen een scherpe prijs. Top service.”</blockquote>
+            <figcaption class="mt-5 text-sm text-graphite"><span class="font-semibold text-ink">A.M. H.</span>, 5 sterren</figcaption>
+          </figure>
+          <figure class="rounded-panel bg-wall p-7 ring-1 ring-line/60">
+            <blockquote class="text-[1.05rem]">“Ik ben heel blij met deze reparatie. Ze zijn heel goed, ik geef hier 10 punten.”</blockquote>
+            <figcaption class="mt-5 text-sm text-graphite"><span class="font-semibold text-ink">M.</span>, Google-review</figcaption>
+          </figure>
+          <figure class="rounded-panel bg-wall p-7 ring-1 ring-line/60">
+            <blockquote class="text-[1.05rem]">“Telefoon goed gerepareerd voor een mooie prijs.”</blockquote>
+            <figcaption class="mt-5 text-sm text-graphite"><span class="font-semibold text-ink">Walid A.</span>, 5 sterren</figcaption>
+          </figure>
+          <figure class="rounded-panel bg-wall p-7 ring-1 ring-line/60">
+            <blockquote class="text-[1.05rem]">“Super service, erg netjes geholpen.”</blockquote>
+            <figcaption class="mt-5 text-sm text-graphite"><span class="font-semibold text-ink">Niels S.</span>, Local Guide</figcaption>
+          </figure>
+          <figure class="rounded-panel bg-wall p-7 ring-1 ring-line/60">
+            <blockquote class="text-[1.05rem]">“Top service, vriendelijk geholpen.”</blockquote>
+            <figcaption class="mt-5 text-sm text-graphite"><span class="font-semibold text-ink">Natalia R.</span>, 5 sterren</figcaption>
+          </figure>
+        </div>
+        <p class="mt-6"><a class="link" href="https://www.google.com/maps/search/?api=1&query=Smartphone+Repair+Veenendaal+Passage+87" target="_blank" rel="noopener">Lees alle reviews op Google</a></p>
+      </div>
+    </section>
+
+    <!-- Bezoek -->
+    <section id="bezoek" class="sec">
+      <div class="wrap grid gap-block lg:grid-cols-2 lg:gap-16">
+        <div>
+          <h2 class="h2">Kom langs in de Passage</h2>
+          <address class="mt-6 not-italic text-lg">
+            <span class="font-semibold">Passage 87</span><br>
+            3901 AZ Veenendaal<br>
+            <span class="text-graphite">In Winkelcentrum Passage, centrum Veenendaal</span>
+          </address>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="https://www.google.com/maps/dir/?api=1&destination=Smartphone+Repair+Veenendaal,+Passage+87,+3901+AZ+Veenendaal" target="_blank" rel="noopener" class="btn btn-primary">
+              <svg aria-hidden="true" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+              Route plannen
+            </a>
+            <a href="mailto:smartphonerepairveenendaal@gmail.com" class="btn btn-ghost">E-mail ons</a>
+          </div>
+
+          <h3 class="mt-14 text-2xl font-extrabold">Openingstijden</h3>
+          <table class="mt-5 w-full max-w-md text-[1.02rem]" id="hours">
+            <caption class="sr-only">Openingstijden per dag</caption>
+            <tbody class="divide-y divide-line">
+              <tr data-day="1"><th scope="row" class="py-3 pl-3 text-left font-medium">Maandag</th><td class="py-3 pr-3 text-right tabular-nums">13:00 – 18:00</td></tr>
+              <tr data-day="2"><th scope="row" class="py-3 pl-3 text-left font-medium">Dinsdag</th><td class="py-3 pr-3 text-right tabular-nums">09:30 – 18:00</td></tr>
+              <tr data-day="3"><th scope="row" class="py-3 pl-3 text-left font-medium">Woensdag</th><td class="py-3 pr-3 text-right tabular-nums">09:30 – 18:00</td></tr>
+              <tr data-day="4"><th scope="row" class="py-3 pl-3 text-left font-medium">Donderdag</th><td class="py-3 pr-3 text-right tabular-nums">09:30 – 18:00</td></tr>
+              <tr data-day="5"><th scope="row" class="py-3 pl-3 text-left font-medium">Vrijdag</th><td class="py-3 pr-3 text-right tabular-nums">09:30 – 21:00</td></tr>
+              <tr data-day="6"><th scope="row" class="py-3 pl-3 text-left font-medium">Zaterdag</th><td class="py-3 pr-3 text-right tabular-nums">09:30 – 17:00</td></tr>
+              <tr data-day="0"><th scope="row" class="py-3 pl-3 text-left font-medium">Zondag</th><td class="py-3 pr-3 text-right text-graphite">Gesloten</td></tr>
+            </tbody>
+          </table>
+          <p class="mt-4 text-sm text-graphite">Rond feestdagen kunnen de tijden afwijken. Bel even als je het zeker wilt weten.</p>
+        </div>
+
+        <div class="flex flex-col gap-5">
+          <div class="photo min-h-[22rem] flex-1 shadow-elevated" style="background:linear-gradient(135deg,#E9ECEF,#DFE2E6)">
+            <div class="absolute inset-0 flex flex-col items-center justify-center gap-1 p-6 text-center text-graphite"><span class="font-semibold text-ink">Passage 87, Veenendaal</span><span class="text-sm">Kaart wordt geladen</span></div>
+            <iframe title="Kaart: Smartphone Repair Veenendaal, Passage 87" src="https://maps.google.com/maps?q=Smartphone%20Repair%20Veenendaal%2C%20Passage%2087%2C%203901%20AZ%20Veenendaal&z=16&output=embed" class="absolute inset-0 h-full w-full border-0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+          <div class="grid gap-3 sm:grid-cols-2">
+            <a href="tel:+31318308781" class="btn btn-ghost !justify-start !py-4"><span class="text-left"><span class="block text-sm font-normal text-graphite">Bel de winkel</span>0318 308 781</span></a>
+            <a href="https://wa.me/31624436406" target="_blank" rel="noopener" class="btn btn-ghost !justify-start !py-4"><span class="text-left"><span class="block text-sm font-normal text-graphite">WhatsApp</span>06 2443 6406</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="dark-glow grain relative overflow-hidden pb-28 pt-16 text-white/75 md:pb-16">
+    <div class="wrap relative grid gap-10 md:grid-cols-[1.4fr_1fr_1fr]">
+      <div>
+        <p class="font-display text-xl font-black leading-none tracking-[0.02em] chrome" style="font-stretch:125%">SMARTPHONEREPAIR</p>
+        <p class="mt-1.5 font-display text-[0.8rem] font-extrabold leading-none tracking-[0.34em] text-signal" style="font-stretch:125%">VEENENDAAL</p>
+        <p class="mt-5 max-w-xs text-[0.95rem]">Accessoires, reparaties, simlock verwijderen en meer.</p>
+      </div>
+      <div class="text-[0.95rem]">
+        <p class="font-semibold text-white">Adres</p>
+        <p class="mt-2">Passage 87<br>3901 AZ Veenendaal</p>
+      </div>
+      <div class="text-[0.95rem]">
+        <p class="font-semibold text-white">Contact</p>
+        <p class="mt-2 space-y-1">
+          <a class="block hover:text-white active:opacity-60" style="transition:opacity 200ms" href="tel:+31318308781">0318 308 781</a>
+          <a class="block hover:text-white active:opacity-60" style="transition:opacity 200ms" href="https://wa.me/31624436406" target="_blank" rel="noopener">WhatsApp 06 2443 6406</a>
+          <a class="block break-all hover:text-white active:opacity-60" style="transition:opacity 200ms" href="mailto:smartphonerepairveenendaal@gmail.com">smartphonerepairveenendaal@gmail.com</a>
+        </p>
+      </div>
+    </div>
+    <div class="wrap relative mt-12 border-t border-white/10 pt-6 text-sm text-white/50">© <span id="year">2026</span> Smartphone Repair Veenendaal</div>
+  </footer>
+
+  <!-- Mobile action bar -->
+  <div class="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-white/95 p-3 backdrop-blur-md md:hidden" style="padding-bottom:max(.75rem, env(safe-area-inset-bottom))">
+    <div class="grid grid-cols-2 gap-3">
+      <a href="tel:+31318308781" class="btn btn-primary !py-3">Bellen</a>
+      <a href="https://wa.me/31624436406" target="_blank" rel="noopener" class="btn btn-ghost !py-3">WhatsApp</a>
+    </div>
+  </div>
+
+  <script>
+    // Live open/closed status in Veenendaal time (Europe/Amsterdam)
+    (function () {
+      const hours = { 0: null, 1: [780, 1080], 2: [570, 1080], 3: [570, 1080], 4: [570, 1080], 5: [570, 1260], 6: [570, 1020] };
+      const names = ['zondag', 'maandag', 'dinsdag', 'woensdag', 'donderdag', 'vrijdag', 'zaterdag'];
+      const fmt = m => String(Math.floor(m / 60)).padStart(2, '0') + ':' + String(m % 60).padStart(2, '0');
+      const parts = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Amsterdam', weekday: 'short', hour: '2-digit', minute: '2-digit', hour12: false }).formatToParts(new Date());
+      const get = t => parts.find(p => p.type === t).value;
+      const day = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].indexOf(get('weekday'));
+      const now = (+get('hour') % 24) * 60 + +get('minute');
+
+      const row = document.querySelector('#hours tr[data-day="' + day + '"]');
+      if (row) { row.classList.add('hours-today'); row.querySelector('th').insertAdjacentHTML('beforeend', ' <span class="text-sm font-semibold text-signal">vandaag</span>'); }
+
+      const dot = document.getElementById('status-dot'), text = document.getElementById('status-text');
+      const today = hours[day];
+      if (today && now >= today[0] && now < today[1]) {
+        dot.className = 'h-2.5 w-2.5 rounded-full bg-[#3DDC84] dot-open';
+        text.textContent = 'Nu open, tot ' + fmt(today[1]);
+        return;
+      }
+      dot.className = 'h-2.5 w-2.5 rounded-full bg-signal';
+      if (today && now < today[0]) { text.textContent = 'Gesloten, vandaag open vanaf ' + fmt(today[0]); return; }
+      for (let i = 1; i <= 7; i++) {
+        const d = (day + i) % 7;
+        if (hours[d]) { text.textContent = 'Gesloten, ' + (i === 1 ? 'morgen' : names[d]) + ' open vanaf ' + fmt(hours[d][0]); return; }
+      }
+    })();
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

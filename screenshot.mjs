@@ -83,7 +83,7 @@ await page.route(/^https:\/\/placehold\.co\//, route => {
 
 // Report anything else the network blocked, so a broken screenshot is never silent.
 const blocked = new Set();
-page.on('requestfailed', r => blocked.add(new URL(r.url()).host));
+page.context().on('requestfailed', r => blocked.add(new URL(r.url()).host));
 
 await page.goto(url, { waitUntil: 'networkidle' });
 
@@ -114,8 +114,25 @@ if (usesTailwindCdn) {
   await page.evaluate(() => document.fonts && document.fonts.ready);
 }
 
+// Scroll through the page so lazy-loaded images load, then return to the top.
+await page.evaluate(async () => {
+  for (let y = 0; y < document.documentElement.scrollHeight; y += window.innerHeight / 2) {
+    window.scrollTo(0, y);
+    await new Promise(r => setTimeout(r, 60));
+  }
+  window.scrollTo(0, 0);
+  // Force every image to load and decode before capturing.
+  const imgs = [...document.images];
+  imgs.forEach(i => { i.loading = 'eager'; });
+  await Promise.all(imgs.map(i => (i.complete ? i.decode().catch(() => {}) : new Promise(r => { i.onload = i.onerror = r; }))));
+});
+await page.waitForLoadState('networkidle').catch(() => {});
 await page.waitForTimeout(500);
-await page.screenshot({ path: out, fullPage: true });
+
+// Chromium renders blank areas past ~16k device pixels; drop to 1x scale for very tall pages.
+const fullHeight = await page.evaluate(() => document.documentElement.scrollHeight);
+const scale = mobile && fullHeight * 2 > 16000 ? 'css' : 'device';
+await page.screenshot({ path: out, fullPage: true, scale });
 await browser.close();
 
 if (blocked.size) console.error(`Blocked by network (not rendered): ${[...blocked].join(', ')}`);
