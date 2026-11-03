@@ -125,6 +125,8 @@ window.MERKEN = [
         'Galaxy XCover7', 'Galaxy XCover6 Pro', 'Galaxy XCover5', 'Galaxy XCover Pro', 'Galaxy XCover 4s',
         'Galaxy J7 (2017)', 'Galaxy J5 (2017)', 'Galaxy J3 (2017)', 'Galaxy J6', 'Galaxy J4+',
         'Galaxy A03s', 'Galaxy A32 5G', 'Galaxy A30', 'Galaxy Note Edge', 'Galaxy Xcover', 'Galaxy Xcover 2', 'Galaxy Xcover 3', 'Galaxy XCover 4', 'Galaxy S5 K zoom', 'Galaxy S4 zoom', 'Galaxy Mega', 'Galaxy Note 3', 'Galaxy J4 (2018)', 'Galaxy Note 3 Neo', 'Galaxy J1', 'Galaxy J1 (2016)', 'Galaxy J1 mini', 'Galaxy Note 5', 'Galaxy J1 Ace', 'Galaxy J2', 'Galaxy J2 (2016)', 'Galaxy Grand', 'Galaxy Grand Neo', 'Galaxy Grand Neo Plus', 'Galaxy Grand Prime', 'Galaxy Core', 'Galaxy Core 2', 'Galaxy Alpha', 'Galaxy Core Prime', 'Galaxy Note', 'Galaxy Note II', 'Galaxy A7 (2017)', 'Galaxy A3 (2015)', 'Galaxy J5',
+      
+        'Galaxy J5 (2016)', 'Galaxy J7 (2016)', 'Galaxy S3 Neo', 'Galaxy S3 mini', 'Galaxy J3 (2016)', 'Galaxy S5 neo', 'Galaxy S5 mini', 'Galaxy S4 mini',
       ] },
       { naam: 'Tablets', type: 'tablet', modellen: [
         'Galaxy Tab S10 Ultra', 'Galaxy Tab S10+', 'Galaxy Tab S10 FE+', 'Galaxy Tab S10 FE',
@@ -134,6 +136,8 @@ window.MERKEN = [
         'Galaxy Tab A9+', 'Galaxy Tab A9', 'Galaxy Tab A8', 'Galaxy Tab A7', 'Galaxy Tab A7 Lite',
         'Galaxy Tab A 10.1 (2019)', 'Galaxy Tab A 10.5', 'Galaxy Tab A 8.0',
         'Galaxy Tab Active5', 'Galaxy Tab Active4 Pro', 'Galaxy Tab Active3',
+      
+        'Galaxy Tab Pro', 'Galaxy Tab E', 'Galaxy Tab A (2016)', 'Galaxy Tab 3 7.0', 'Galaxy Tab 3 Lite', 'Galaxy Tab 3 8.0', 'Galaxy Tab 4 7.0', 'Galaxy Tab 4 8.0', 'Galaxy Tab A 9.7', 'Galaxy Tab A 7.0 (2016)', 'Galaxy Tab S', 'Galaxy Tab 2', 'Galaxy Tab 3',
       ] },
     ],
   },
@@ -150,6 +154,8 @@ window.MERKEN = [
         'Xperia XA2 Ultra', 'Xperia XA2 Plus', 'Xperia XA2', 'Xperia XA1 Plus', 'Xperia XA1', 'Xperia XA',
         'Xperia X Compact', 'Xperia X', 'Xperia Z5 Premium', 'Xperia Z5', 'Xperia Z5 Compact',
         'Xperia Z3+', 'Xperia Z3', 'Xperia Z3 Compact',
+      
+        'Xperia XA1 Ultra', 'Xperia C3', 'Xperia Z2', 'Xperia Z1', 'Xperia Z1 Compact', 'Xperia Z', 'Xperia M4 Aqua', 'Xperia M2', 'Xperia Z Ultra', 'Xperia C5 Ultra',
       ] },
     ],
   },
@@ -173,6 +179,8 @@ window.MERKEN = [
         'Moto g5s plus', 'Moto g5s', 'Moto g5 plus', 'Moto g5',
         'Moto e40', 'Moto e32', 'Moto e30', 'Moto e22', 'Moto e20', 'Moto e14', 'Moto e13', 'Moto e7', 'Moto e6 plus',
         'Motorola one vision', 'Motorola one action', 'Motorola one zoom', 'Motorola one',
+      
+        'Moto g8 play', 'Moto g4 plus', 'Moto G3', 'Moto G2', 'Moto G', 'Moto X Play', 'Moto X (2014)', 'Moto X Style', 'Moto e4', 'Moto e4 plus', 'Moto g4',
       ] },
       { naam: 'Tablets', type: 'tablet', modellen: ['Moto tab g84', 'Moto tab g70', 'Moto tab g62'] },
     ],
