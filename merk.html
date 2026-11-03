@@ -60,6 +60,36 @@
           <ellipse cx="62" cy="125" rx="46" ry="3" fill="#000" opacity=".08"/></svg>`;
       };
 
+      // Brands without a model list (Xiaomi, Oppo): one block as on the reference site
+      if (!merk.categorieen.length) {
+        document.getElementById('titel').textContent = merk.naam.toUpperCase();
+        document.getElementById('intro').remove();
+        document.getElementById('titel').parentElement.parentElement.classList.add('pb-[34px]', 'md:py-[70px]');
+        const check = '<svg viewBox="0 0 24 24" class="h-[22px] w-[26px] flex-none" aria-hidden="true"><path d="M2.5 13.2l6.3 6.1L21.6 5" fill="none" stroke="#1B6EC2" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+        const punten = ['Smartphone & Tablet Reparatie', 'Eerst een diagnose', 'Garantie op reparatie', 'Met of zonder afspraak'];
+        document.getElementById('categorieen').innerHTML = `
+          <section class="bg-white pb-12 pt-8 md:pb-[30px] md:pt-[30px]">
+            <div class="wrap-inner grid items-start gap-10 md:grid-cols-[1fr_350px] md:gap-[38px]">
+              <div class="pt-2 text-center">
+                <img src="img/merken/${merk.slug}.svg" alt="${merk.naam}" class="mx-auto h-[110px] w-auto max-w-[70%] md:h-[150px]">
+                <p class="mx-auto mt-8 max-w-[34ch] text-[18px] font-light leading-[1.4] text-[#333] md:mt-[46px] md:max-w-none md:text-[22px]">We repareren alle modellen van ${merk.naam}. <a class="press text-brand" href="${SHOP.telHref}">Bel</a> ons gerust voor meer informatie of stuur ons een <a class="press text-brand" href="${wa(`Hallo, kunnen jullie mijn ${merk.naam} toestel repareren?`)}" target="_blank" rel="noopener">WhatsApp</a>!</p>
+              </div>
+              <aside>
+                <div class="rounded-[4px] bg-band px-6 pb-[26px] pt-[22px] shadow-[0_1px_2px_rgba(20,40,70,.06)] md:px-[26px]">
+                  <h2 class="text-center text-[18px] font-bold text-[#333] md:text-[20px]">Waarom bij ons?</h2>
+                  <ul class="mt-[14px] space-y-[18px] text-[15px] font-light text-[#333] md:text-[16px]">${punten.map(p => `<li class="flex items-center gap-[16px]">${check}${p}</li>`).join('')}</ul>
+                </div>
+                <a href="${SHOP.telHref}" class="press mt-[30px] block border-b-[3px] border-brand text-center">
+                  <span class="block rounded-t-[3px] bg-brand py-[3px] text-[13px] uppercase text-white">Heeft u nog vragen?</span>
+                  <span class="mt-[9px] block text-[11px] uppercase text-brand">Bel ons op</span>
+                  <span class="block pb-[6px] text-[18px] font-light text-brand">${SHOP.tel}</span>
+                </a>
+              </aside>
+            </div>
+          </section>`;
+        return;
+      }
+
       const enkel = merk.categorieen.length === 1;
       let n = 0;
       document.getElementById('categorieen').innerHTML = merk.categorieen.map((cat, ci) => `
