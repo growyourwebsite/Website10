@@ -75,6 +75,7 @@ window.MERKEN = [
         'LG K62', 'LG K61', 'LG K52', 'LG K51s', 'LG K50s', 'LG K42', 'LG K41s', 'LG K40', 'LG K22',
         'LG K11', 'LG K10 2018', 'LG K10 2017', 'LG K10', 'LG K9', 'LG K8 2018', 'LG K8 2017', 'LG K8', 'LG K4',
         'LG Nexus 5X', 'LG Nexus 5', 'LG L90', 'LG L70', 'LG Leon', 'LG Spirit', 'LG Magna',
+        'LG Nexus 4', 'LG Optimus G', 'LG K4 2017', 'LG G4 mini', 'LG G3 mini', 'LG G2 mini', 'LG Fino', 'LG Bello',
       ] },
     ],
   },
@@ -89,6 +90,7 @@ window.MERKEN = [
         'Nokia 9 PureView', 'Nokia 8.1', 'Nokia 7.1', 'Nokia 6.1', 'Nokia 5.1', 'Nokia 3.1', 'Nokia 2.1',
         'Nokia 8', 'Nokia 7 Plus', 'Nokia 7', 'Nokia 6', 'Nokia 5', 'Nokia 3', 'Nokia 2', 'Nokia 1',
         'Nokia Lumia 950', 'Nokia Lumia 640', 'Nokia Lumia 635', 'Nokia Lumia 630',
+        'Microsoft Lumia 640 XL', 'Microsoft Lumia 550', 'Microsoft Lumia 540', 'Microsoft Lumia 532', 'Microsoft Lumia 535', 'Nokia Lumia 820', 'Nokia Lumia 830', 'Nokia Lumia 520', 'Nokia Lumia 530', 'Microsoft Lumia 435', 'Nokia Lumia 800', 'Microsoft Lumia 950 XL', 'Nokia Lumia 930', 'Nokia Lumia 925', 'Nokia Lumia 920', 'Nokia Lumia 900', 'Nokia Lumia 1020',
       ] },
       { naam: 'Tablets', type: 'tablet', modellen: ['Nokia T21', 'Nokia T20', 'Nokia T10'] },
     ],
@@ -122,6 +124,7 @@ window.MERKEN = [
         'Galaxy M52', 'Galaxy M33', 'Galaxy M23', 'Galaxy M13',
         'Galaxy XCover7', 'Galaxy XCover6 Pro', 'Galaxy XCover5', 'Galaxy XCover Pro', 'Galaxy XCover 4s',
         'Galaxy J7 (2017)', 'Galaxy J5 (2017)', 'Galaxy J3 (2017)', 'Galaxy J6', 'Galaxy J4+',
+        'Galaxy A03s', 'Galaxy A32 5G', 'Galaxy A30', 'Galaxy Note Edge', 'Galaxy Xcover', 'Galaxy Xcover 2', 'Galaxy Xcover 3', 'Galaxy XCover 4', 'Galaxy S5 K zoom', 'Galaxy S4 zoom', 'Galaxy Mega', 'Galaxy Note 3', 'Galaxy J4 (2018)', 'Galaxy Note 3 Neo', 'Galaxy J1', 'Galaxy J1 (2016)', 'Galaxy J1 mini', 'Galaxy Note 5', 'Galaxy J1 Ace', 'Galaxy J2', 'Galaxy J2 (2016)', 'Galaxy Grand', 'Galaxy Grand Neo', 'Galaxy Grand Neo Plus', 'Galaxy Grand Prime', 'Galaxy Core', 'Galaxy Core 2', 'Galaxy Alpha', 'Galaxy Core Prime', 'Galaxy Note', 'Galaxy Note II', 'Galaxy A7 (2017)', 'Galaxy A3 (2015)', 'Galaxy J5',
       ] },
       { naam: 'Tablets', type: 'tablet', modellen: [
         'Galaxy Tab S10 Ultra', 'Galaxy Tab S10+', 'Galaxy Tab S10 FE+', 'Galaxy Tab S10 FE',
