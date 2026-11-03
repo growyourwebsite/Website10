@@ -13,7 +13,7 @@ window.MERKEN = [
         'iPhone 12 Pro Max', 'iPhone 12 Pro', 'iPhone 12', 'iPhone 12 mini', 'iPhone SE (2020)',
         'iPhone 11 Pro Max', 'iPhone 11 Pro', 'iPhone 11', 'iPhone XS Max', 'iPhone XS', 'iPhone XR', 'iPhone X',
         'iPhone 8 Plus', 'iPhone 8', 'iPhone 7 Plus', 'iPhone 7', 'iPhone 6s Plus', 'iPhone 6s',
-        'iPhone 6 Plus', 'iPhone 6', 'iPhone SE (2016)', 'iPhone 5s', 'iPhone 5c', 'iPhone 5', 'iPhone 4s', 'iPhone 4',
+        'iPhone 6 Plus', 'iPhone 6', 'iPhone SE (2016)', 'iPhone 5s', 'iPhone 5c', 'iPhone 5', 'iPhone 4s', 'iPhone 4', 'iPod touch (5e/6e generatie)', 'iPod touch (4e generatie)',
       ] },
       { naam: 'iPads', type: 'tablet', modellen: [
         'iPad Pro 13-inch (M4)', 'iPad Pro 11-inch (M4)',
@@ -38,7 +38,7 @@ window.MERKEN = [
         'HTC U Ultra', 'HTC U Play', 'HTC 10', 'HTC Desire 10 Pro', 'HTC Desire 10 Lifestyle',
         'HTC One A9s', 'HTC One A9', 'HTC One M9', 'HTC One M8', 'HTC One M7', 'HTC One mini 2', 'HTC One mini',
         'HTC Desire 830', 'HTC Desire 825', 'HTC Desire 820', 'HTC Desire 816', 'HTC Desire 650', 'HTC Desire 626',
-        'HTC Desire 620', 'HTC Desire 610', 'HTC Desire 600', 'HTC Desire 530', 'HTC Desire 510', 'HTC Desire 500',
+        'HTC Desire 620', 'HTC Desire 610', 'HTC Desire 600', 'HTC Desire 530', 'HTC Desire 510', 'HTC Desire 500', 'HTC Desire 300', 'HTC Desire 320', 'HTC One X', 'HTC One M8s',
       ] },
     ],
   },
@@ -57,7 +57,7 @@ window.MERKEN = [
         'Huawei nova 12', 'Huawei nova 11 Pro', 'Huawei nova 11', 'Huawei nova 10 Pro', 'Huawei nova 10', 'Huawei nova 9',
         'Huawei nova 8i', 'Huawei nova 5T', 'Huawei nova Y90', 'Huawei nova Y70',
         'Huawei Y9 2019', 'Huawei Y7 2019', 'Huawei Y6 2019', 'Huawei Y6p', 'Huawei Y5 2019',
-        'Honor View 20', 'Honor 20', 'Honor 10', 'Honor 10 Lite', 'Honor 9', 'Honor 9 Lite', 'Honor 8', 'Honor 8X',
+        'Honor View 20', 'Honor 20', 'Honor 10', 'Honor 10 Lite', 'Honor 9', 'Honor 9 Lite', 'Honor 8', 'Honor 8X', 'Huawei P smart+', 'Huawei Y3', 'Huawei Y625', 'Huawei Mate 10', 'Huawei G630', 'Huawei G530', 'Huawei G700', 'Huawei G740', 'Huawei G750', 'Huawei G600', 'Huawei Y5 II', 'Huawei Y6 II', 'Huawei Y360', 'Huawei G6', 'Huawei Y6', 'Huawei P8 lite 2017', 'Huawei P7', 'Huawei P6', 'Huawei G8', 'Huawei G7',
       ] },
       { naam: 'Tablets', type: 'tablet', modellen: [
         'Huawei MatePad Pro 13.2', 'Huawei MatePad 11.5', 'Huawei MatePad Pro 11', 'Huawei MatePad 11',
