@@ -21,6 +21,7 @@
 - Optional label suffix: `node screenshot.mjs http://localhost:3000 label` → saves as `screenshot-N-label.png`
 - Mobile viewport (390px): add `--mobile`, e.g. `node screenshot.mjs http://localhost:3000 home --mobile`
 - `screenshot.mjs` lives in the project root. Use it as-is.
+- The container's network blocks `cdn.tailwindcss.com` and `placehold.co`. `screenshot.mjs` handles this: it compiles the page's Tailwind locally with the official `tailwindcss` v3 package (pinned in `package.json`, auto-installed on first run) using the page's own `tailwind.config` and `<style type="text/tailwindcss">`, and draws grey placeholders for `placehold.co`. Keep the real CDN links in `index.html`. If it prints `Blocked by network`, those resources are missing from the screenshot.
 - After screenshotting, read the PNG from `temporary screenshots/` with the Read tool — Claude can see and analyze the image directly.
 - When comparing, be specific: "heading is 32px but reference shows ~24px", "card gap is 16px but should be 24px"
 - Check: spacing/padding, font size/weight/line-height, colors (exact hex), alignment, border-radius, shadows, image sizing
