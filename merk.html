@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reparatie | Smartphone Repair Veenendaal</title>
+  <meta name="description" content="Alle toestellen die Smartphone Repair Veenendaal kan repareren. Passage 87, Veenendaal.">
+  <meta name="theme-color" content="#1B6EC2">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;600;700;800&family=Roboto+Slab:wght@300;400&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="js/tailwind-config.js"></script>
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body data-page="merk">
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:bg-white focus:px-4 focus:py-2">Naar de inhoud</a>
+  <header id="site-header" class="bg-white"></header>
+
+  <main id="main">
+    <section class="bg-band pt-[34px]">
+      <div class="wrap-inner text-center">
+        <h1 id="titel" class="text-[28px] font-light leading-tight tracking-[-0.01em] text-[#333] md:text-[32px]"></h1>
+        <p id="intro" class="mx-auto mt-4 max-w-[60ch] text-[13px] font-light"></p>
+      </div>
+    </section>
+    <div id="categorieen"></div>
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script src="js/toestellen.js"></script>
+  <script src="js/site.js"></script>
+  <script>
+    (function () {
+      const param = new URLSearchParams(location.search).get('m');
+      const merk = MERKEN.find(m => m.slug === param) || MERKEN[0];
+      const { slug, wa } = SITE;
+
+      document.title = `${merk.naam} reparatie | Smartphone Repair Veenendaal`;
+      document.getElementById('titel').textContent = `${merk.naam} reparatie`;
+      document.getElementById('intro').textContent = `Hier vindt u alle ${merk.tekst} toestellen die wij kunnen repareren voor u`;
+
+      // Simple product-style illustration per model (no manufacturer photos)
+      const kleuren = [['#1d1d1f', '#3a3a3c'], ['#2b3442', '#4a5568'], ['#c9ccd1', '#e6e8eb'], ['#3d4a5c', '#58677d'], ['#e4d3c3', '#f2e7dc'], ['#20303f', '#33475b']];
+      const schermen = [['#1B6EC2', '#7fc1ff', '#0c2c55'], ['#7b4bd8', '#f08bb4', '#1c1440'], ['#0f8f86', '#8de0c7', '#0a2a33'], ['#e2683c', '#ffcf6b', '#3a1408'], ['#2a6fd6', '#a4e4ff', '#10234a'], ['#c73b6c', '#ffb29c', '#2a0d1d']];
+      const toestel = (type, i) => {
+        const [b1, b2] = kleuren[i % kleuren.length], [s1, s2, s3] = schermen[(i * 5 + 2) % schermen.length];
+        if (type === 'tablet') return `<svg viewBox="0 0 180 130" class="h-[118px] w-auto" aria-hidden="true">
+          <defs><linearGradient id="s${i}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${s1}"/><stop offset=".55" stop-color="${s2}"/><stop offset="1" stop-color="${s3}"/></linearGradient>
+          <linearGradient id="b${i}" x1="0" x2="1"><stop offset="0" stop-color="${b2}"/><stop offset="1" stop-color="${b1}"/></linearGradient></defs>
+          <rect x="6" y="8" width="168" height="116" rx="11" fill="url(#b${i})"/><rect x="13" y="15" width="154" height="102" rx="5" fill="url(#s${i})"/>
+          <ellipse cx="90" cy="126" rx="70" ry="3" fill="#000" opacity=".08"/></svg>`;
+        return `<svg viewBox="0 0 120 130" class="h-[118px] w-auto" aria-hidden="true">
+          <defs><linearGradient id="s${i}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${s1}"/><stop offset=".55" stop-color="${s2}"/><stop offset="1" stop-color="${s3}"/></linearGradient>
+          <linearGradient id="b${i}" x1="0" x2="1"><stop offset="0" stop-color="${b2}"/><stop offset="1" stop-color="${b1}"/></linearGradient></defs>
+          <rect x="18" y="6" width="50" height="104" rx="9" fill="url(#b${i})"/><circle cx="31" cy="20" r="6" fill="#111" stroke="${b2}" stroke-width="2"/><circle cx="31" cy="35" r="6" fill="#111" stroke="${b2}" stroke-width="2"/>
+          <rect x="52" y="14" width="52" height="108" rx="9" fill="#111"/><rect x="55" y="17" width="46" height="102" rx="7" fill="url(#s${i})"/><rect x="71" y="20" width="14" height="4" rx="2" fill="#111"/>
+          <ellipse cx="62" cy="125" rx="46" ry="3" fill="#000" opacity=".08"/></svg>`;
+      };
+
+      const enkel = merk.categorieen.length === 1;
+      let n = 0;
+      document.getElementById('categorieen').innerHTML = merk.categorieen.map((cat, ci) => `
+        <details data-cat="${ci}"${enkel ? ' open' : ''}>
+          <summary class="press block bg-band">
+            <span class="notch wrap-inner flex items-center gap-[15px] ${ci === 0 ? 'pt-[32px]' : 'pt-[12px]'} ${ci === merk.categorieen.length - 1 ? 'pb-[34px]' : 'pb-[12px]'}"><span class="pm" aria-hidden="true"></span><span class="text-[20px] font-light text-[#333]">${cat.naam}</span></span>
+          </summary>
+          <div class="bg-white pb-6 pt-9">
+            <ul class="wrap-inner grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 md:gap-[22px]">
+              ${cat.modellen.map(model => `<li><a id="${slug(model)}" href="${wa(`Hallo, ik wil graag mijn ${model} laten repareren. Wat is er mogelijk?`)}" target="_blank" rel="noopener" class="modelcard flex h-full min-h-[170px] flex-col items-center justify-start border border-line bg-white px-3 pb-6 pt-4 text-center md:min-h-[204px] md:pt-[15px]">
+                <span class="flex h-[120px] items-center">${toestel(cat.type, n++)}</span>
+                <span class="mt-4 text-[15px] font-light leading-tight text-brand md:text-[16px]">${model}</span>
+              </a></li>`).join('')}
+            </ul>
+            <p class="wrap-inner mt-8 text-center text-[13px] font-light text-muted">Staat uw toestel er niet tussen? <a class="press text-brand underline" href="${SHOP.telHref}">Bel ons</a> of stuur ons een <a class="press text-brand underline" href="${wa(`Hallo, kunnen jullie mijn ${merk.naam} toestel repareren?`)}" target="_blank" rel="noopener">WhatsApp</a>.</p>
+          </div>
+        </details>`).join('');
+
+      // Open the category of a model linked from search or the footer, then scroll to it
+      const naarModel = () => {
+        const id = decodeURIComponent(location.hash.slice(1));
+        const el = id && document.getElementById(id);
+        if (!el) return;
+        el.closest('details').open = true;
+        requestAnimationFrame(() => el.scrollIntoView({ block: 'center' }));
+      };
+      naarModel();
+      addEventListener('hashchange', naarModel);
+    })();
+  </script>
+</body>
+</html>

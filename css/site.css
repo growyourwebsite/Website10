@@ -1,0 +1,66 @@
+/* Shared styles for all pages (plain CSS, next to Tailwind utilities) */
+html { -webkit-text-size-adjust: 100%; }
+body { font-family: Mulish, system-ui, sans-serif; color: #333; background: #fff; }
+
+/* Content width: matches the reference (about 84% of the viewport, max 1170px) */
+.wrap { width: min(1170px, 92%); margin-inline: auto; }
+@media (min-width: 768px) { .wrap { width: min(1170px, 84%); } }
+.wrap-inner { width: min(1130px, 92%); margin-inline: auto; }
+@media (min-width: 768px) { .wrap-inner { width: min(1130px, 81.3%); } }
+
+/* Focus, hover and active states for everything clickable */
+a, button, summary, input, textarea { -webkit-tap-highlight-color: transparent; }
+:focus-visible { outline: 3px solid #5AA2E6; outline-offset: 3px; border-radius: 3px; }
+.press { transition: opacity 180ms ease, transform 220ms cubic-bezier(.34,1.56,.64,1); }
+.press:hover { opacity: .78; }
+.press:active { transform: scale(.96); opacity: .6; }
+
+.navlink { transition: color 160ms ease, opacity 160ms ease; }
+.navlink:hover, .navlink[aria-current="page"] { color: #1B6EC2; }
+.navlink:active { opacity: .6; }
+
+/* Brand nav scrolls sideways on small screens */
+.brandnav { scrollbar-width: none; }
+.brandnav::-webkit-scrollbar { display: none; }
+
+/* Brand tiles on the home page */
+.brandtile img { transition: transform 260ms cubic-bezier(.34,1.56,.64,1); }
+.brandtile:hover img { transform: scale(1.06); }
+.brandtile:active img { transform: scale(.97); }
+
+/* Image tiles: photo + dark treatment */
+.phototile { position: relative; overflow: hidden; isolation: isolate; background: #222; }
+.phototile > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
+.phototile::before { content: ""; position: absolute; inset: 0; z-index: -1; background: #20283a; mix-blend-mode: multiply; opacity: .55; }
+.phototile::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(to top, rgba(0,0,0,.6), rgba(0,0,0,.15)); }
+
+/* Accordions (FAQ and model lists) */
+details > summary { list-style: none; cursor: pointer; }
+details > summary::-webkit-details-marker { display: none; }
+.pm { position: relative; width: 13px; height: 13px; flex: none; }
+.pm::before, .pm::after { content: ""; position: absolute; background: #5AA2E6; border-radius: 1px; transition: transform 240ms cubic-bezier(.34,1.56,.64,1), opacity 200ms; }
+.pm::before { left: 0; right: 0; top: 5px; height: 3.5px; }
+.pm::after { top: 0; bottom: 0; left: 5px; width: 3.5px; }
+details[open] > summary .pm::after { transform: scaleY(0); opacity: 0; }
+
+/* Model cards */
+.modelcard { transition: border-color 200ms ease, transform 260ms cubic-bezier(.34,1.56,.64,1), box-shadow 260ms ease; }
+.modelcard:hover { border-color: #5AA2E6; transform: translateY(-3px); box-shadow: 0 10px 24px -14px rgba(27,110,194,.45), 0 2px 6px -2px rgba(27,110,194,.15); }
+.modelcard:active { transform: translateY(0) scale(.98); }
+.modelcard:target { border-color: #1B6EC2; box-shadow: 0 0 0 3px rgba(27,110,194,.35); }
+.modelcard svg { transition: transform 260ms cubic-bezier(.34,1.56,.64,1); }
+.modelcard:hover svg { transform: scale(1.04); }
+
+/* White notch under an open category header (as in the reference) */
+.notch { position: relative; }
+.notch::after { content: ""; position: absolute; left: -6px; bottom: 0; width: 0; height: 0; border-left: 19px solid transparent; border-right: 19px solid transparent; border-bottom: 9px solid #fff; opacity: 0; transition: opacity 160ms; }
+details[open] > summary .notch::after { opacity: 1; }
+
+/* Search overlay */
+#zoek[hidden] { display: none; }
+#zoek { animation: fadein 160ms ease both; }
+@keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}

@@ -39,7 +39,8 @@ const PLUGINS = {
 
 const args = process.argv.slice(2);
 const mobile = args.includes('--mobile');
-const [url = 'http://localhost:3000', label] = args.filter(a => a !== '--mobile');
+const ipad = args.includes('--ipad');
+const [url = 'http://localhost:3000', label] = args.filter(a => a !== '--mobile' && a !== '--ipad');
 
 const dir = path.join(root, 'temporary screenshots');
 fs.mkdirSync(dir, { recursive: true });
@@ -50,7 +51,9 @@ const out = path.join(dir, `screenshot-${n}${label ? `-${label}` : ''}.png`);
 const browser = await chromium.launch();
 const page = await browser.newPage(mobile
   ? { viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true }
-  : { viewport: { width: 1440, height: 900 } });
+  : ipad
+    ? { viewport: { width: 1000, height: 750 }, deviceScaleFactor: 2 } // iPad landscape, as in the reference screenshots
+    : { viewport: { width: 1440, height: 900 } });
 
 // --- cdn.tailwindcss.com → stub; CSS is compiled locally after load ---
 let usesTailwindCdn = false;
@@ -131,7 +134,7 @@ await page.waitForTimeout(500);
 
 // Chromium renders blank areas past ~16k device pixels; drop to 1x scale for very tall pages.
 const fullHeight = await page.evaluate(() => document.documentElement.scrollHeight);
-const scale = mobile && fullHeight * 2 > 16000 ? 'css' : 'device';
+const scale = (mobile || ipad) && fullHeight * 2 > 16000 ? 'css' : 'device';
 await page.screenshot({ path: out, fullPage: true, scale });
 await browser.close();
 
