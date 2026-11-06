@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reparatie | Smartphone Repair Veenendaal</title>
+  <meta name="description" content="Kies uw reparatie bij Smartphone Repair Veenendaal, Passage 87, Veenendaal.">
+  <meta name="theme-color" content="#1B6EC2">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;600;700;800&family=Roboto+Slab:wght@300;400&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="js/tailwind-config.js"></script>
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body data-page="toestel">
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:bg-white focus:px-4 focus:py-2">Naar de inhoud</a>
+  <header id="site-header" class="bg-white"></header>
+
+  <main id="main" class="bg-band pb-12 pt-[34px] md:pb-[60px] md:pt-[64px]">
+    <div class="wrap-inner">
+      <h1 id="titel" class="text-center text-[26px] font-light leading-tight tracking-[-0.01em] text-[#333] md:text-[32px]"></h1>
+      <div id="inhoud" class="mt-8 grid items-start gap-8 md:mt-[46px] md:grid-cols-[1fr_330px] md:gap-[22px]"></div>
+    </div>
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script src="js/toestellen.js?v=20261106"></script>
+  <script src="js/fotos.js?v=20261106"></script>
+  <script src="js/site.js?v=20261106"></script>
+  <script>
+    (function () {
+      const { slug, wa } = SITE;
+      const q = new URLSearchParams(location.search);
+      const merk = MERKEN.find(m => m.slug === q.get('m'));
+      const model = merk && merk.categorieen.flatMap(c => c.modellen).find(n => slug(n) === q.get('t'));
+      if (!model) { location.replace(merk ? `merk.html?m=${merk.slug}` : 'index.html'); return; }
+
+      document.title = `${model} reparatie | Smartphone Repair Veenendaal`;
+      document.getElementById('titel').textContent = `${model} reparatie`;
+
+      // The repair options, the same for every phone and tablet
+      const opties = ['scherm vervangen', 'backcover vervangen', 'Accu vervangen', 'luidspreker vervangen', 'oorspeaker vervangen',
+        'laadconnector vervangen', 'selfie camera vervangen', 'achtercamera vervangen', 'aan uit knop vervangen', 'volumeknop vervangen'];
+
+      document.getElementById('inhoud').innerHTML = `
+        <form id="reparaties" class="rounded-[8px] bg-white px-5 pb-8 pt-7 shadow-[0_1px_2px_rgba(20,40,70,.05),0_12px_30px_-22px_rgba(20,40,70,.35)] md:px-[29px] md:pb-[40px] md:pt-[34px]">
+          <fieldset>
+            <legend class="text-[15px] font-bold text-[#333]">Kies uw reparatie:</legend>
+            <ul class="mt-5 space-y-[6px] md:mt-[26px]">
+              ${opties.map((o, i) => `<li><label class="optie flex cursor-pointer items-center gap-[14px] rounded-[4px] py-[10px] pl-[2px] pr-2">
+                <input type="checkbox" name="optie" value="${o}" class="optie-vak">
+                <span class="text-[15px] font-light leading-[1.2] text-[#333] md:text-[16px]">${model} reparatie ${o}</span>
+              </label></li>`).join('')}
+            </ul>
+          </fieldset>
+          <a id="aanvraag" href="#" target="_blank" rel="noopener" class="press mt-7 inline-flex items-center gap-2 rounded-[4px] bg-brand px-5 py-3 text-[15px] font-semibold text-white md:mt-[30px]">${SITE.icon.wa}Vraag de prijs aan via WhatsApp</a>
+        </form>
+        <aside>
+          <div class="flex justify-center">
+            ${FOTOS.has(slug(model)) ? `<img src="img/toestellen/${slug(model)}.webp" alt="${model}" class="h-[220px] w-auto max-w-full object-contain md:h-[256px]">` : ''}
+          </div>
+          <a href="${SHOP.telHref}" class="press mt-8 block border-b-[3px] border-brand bg-white text-center md:mt-[44px]">
+            <span class="block rounded-t-[3px] bg-brand py-[3px] text-[13px] uppercase text-white">Heeft u nog vragen?</span>
+            <span class="mt-[9px] block text-[11px] uppercase text-brand">Bel ons op</span>
+            <span class="block pb-[6px] text-[18px] font-light text-brand">${SHOP.tel}</span>
+          </a>
+        </aside>`;
+
+      // WhatsApp message lists the ticked repairs
+      const knop = document.getElementById('aanvraag'), vakjes = [...document.querySelectorAll('.optie-vak')];
+      const bericht = () => {
+        const gekozen = vakjes.filter(v => v.checked).map(v => v.value);
+        knop.href = wa(gekozen.length
+          ? `Hallo, wat kost deze reparatie voor mijn ${model}?\n- ${gekozen.join('\n- ')}`
+          : `Hallo, ik wil graag mijn ${model} laten repareren. Wat is er mogelijk?`);
+      };
+      vakjes.forEach(v => v.addEventListener('change', bericht));
+      bericht();
+    })();
+  </script>
+</body>
+</html>

@@ -17,7 +17,9 @@
 
   const slug = s => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/\+/g, '-plus').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
   const wa = text => `https://wa.me/${SHOP.waNummer}${text ? '?text=' + encodeURIComponent(text) : ''}`;
-  window.SITE = { slug, wa };
+  // Link to a model's own repair page
+  const toestelUrl = (merkSlug, model) => `toestel.html?m=${merkSlug}&t=${slug(model)}`;
+  window.SITE = { slug, wa, toestelUrl };
 
   const icon = {
     clock: '<svg viewBox="0 0 48 48" class="h-6 w-6 flex-none" aria-hidden="true"><circle cx="24" cy="24" r="20" fill="none" stroke="#1B6EC2" stroke-width="4.5"/><path d="M24 13v12h-7" fill="none" stroke="#1B6EC2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>',
@@ -126,7 +128,7 @@
             </ul>
             <h2 class="mt-8 text-[13px] font-light uppercase text-[#eee]">Populaire reparaties</h2>
             <ul class="mt-3 text-brand-light">
-              ${populair.map(([m, n]) => `<li><a class="press" href="merk.html?m=${m}#${slug(n)}">${n}</a></li>`).join('')}
+              ${populair.map(([m, n]) => `<li><a class="press" href="${toestelUrl(m, n)}">${n}</a></li>`).join('')}
             </ul>
           </div>
         </div>
@@ -165,7 +167,7 @@
     const woorden = q.split(/\s+/);
     const hits = alle.filter(({ model, merk }) => woorden.every(w => (merk.naam + ' ' + model).toLowerCase().includes(w))).slice(0, 40);
     lijst.innerHTML = hits.length
-      ? hits.map(({ model, merk }) => `<li><a class="navlink flex justify-between gap-4 border-b border-line py-3 text-[17px] font-light" href="merk.html?m=${merk.slug}#${slug(model)}"><span>${model}</span><span class="text-[13px] text-muted">${merk.naam}</span></a></li>`).join('')
+      ? hits.map(({ model, merk }) => `<li><a class="navlink flex justify-between gap-4 border-b border-line py-3 text-[17px] font-light" href="${toestelUrl(merk.slug, model)}"><span>${model}</span><span class="text-[13px] text-muted">${merk.naam}</span></a></li>`).join('')
       : `<li class="py-3 text-[15px] text-muted">Geen toestel gevonden voor "${q.replace(/[<&>]/g, '')}". Staat uw toestel er niet tussen? <a class="text-brand underline" href="${wa('Hallo, kunnen jullie mijn ' + q.replace(/[<&>]/g, '') + ' repareren?')}" target="_blank" rel="noopener">Stuur ons een WhatsApp</a>, dan kijken we of we het kunnen repareren.</li>`;
   };
   let terug = null;

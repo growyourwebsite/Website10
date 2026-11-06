@@ -29,14 +29,14 @@
 
   <footer id="site-footer"></footer>
 
-  <script src="js/toestellen.js?v=20261104"></script>
-  <script src="js/fotos.js?v=20261104"></script>
-  <script src="js/site.js?v=20261104"></script>
+  <script src="js/toestellen.js?v=20261106"></script>
+  <script src="js/fotos.js?v=20261106"></script>
+  <script src="js/site.js?v=20261106"></script>
   <script>
     (function () {
       const param = new URLSearchParams(location.search).get('m');
       const merk = MERKEN.find(m => m.slug === param) || MERKEN[0];
-      const { slug, wa } = SITE;
+      const { slug, wa, toestelUrl } = SITE;
 
       document.title = `${merk.naam} reparatie | Smartphone Repair Veenendaal`;
       document.getElementById('titel').textContent = `${merk.naam} reparatie`;
@@ -99,7 +99,7 @@
           </summary>
           <div class="bg-white pb-6 pt-9">
             <ul class="wrap-inner grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 md:gap-[22px]">
-              ${cat.modellen.map(model => `<li><a id="${slug(model)}" href="${wa(`Hallo, ik wil graag mijn ${model} laten repareren. Wat is er mogelijk?`)}" target="_blank" rel="noopener" class="modelcard flex h-full min-h-[170px] flex-col items-center justify-start border border-line bg-white px-3 pb-6 pt-4 text-center md:min-h-[204px] md:pt-[15px]">
+              ${cat.modellen.map(model => `<li><a id="${slug(model)}" href="${toestelUrl(merk.slug, model)}" class="modelcard flex h-full min-h-[170px] flex-col items-center justify-start border border-line bg-white px-3 pb-6 pt-4 text-center md:min-h-[204px] md:pt-[15px]">
                 <span class="flex h-[120px] items-center">${FOTOS.has(slug(model)) ? `<img src="img/toestellen/${slug(model)}.webp" alt="" loading="lazy" class="max-h-[120px] max-w-full object-contain">` : toestel(cat.type, n)}</span>${(n++, '')}
                 <span class="mt-4 text-[15px] font-light leading-tight text-brand md:text-[16px]">${model}</span>
               </a></li>`).join('')}
